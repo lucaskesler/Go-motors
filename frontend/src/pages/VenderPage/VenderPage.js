@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
+import AvisoCadastro from '../../components/AvisoCadastro/AvisoCadastro';
+import { useAuth } from '../../context/AuthContext';
 import './VenderPage.css';
 
 function VenderPage() {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [veiculo, setVeiculo] = useState({
     marca: '',
     modelo: '',
@@ -51,30 +54,36 @@ function VenderPage() {
   return (
     <div>
       <Header />
-      <main className="main-content">
-        <div className="sell-form-container">
-          <h2>Anuncie seu Veículo</h2>
-          <p>Preencha os dados abaixo para criar seu anúncio.</p>
-          <form onSubmit={handleSubmit} className="sell-form">
-            <div className="form-row">
-              <input name="marca" value={veiculo.marca} onChange={handleChange} placeholder="Marca (ex: BMW)" />
-              <input name="modelo" value={veiculo.modelo} onChange={handleChange} placeholder="Modelo (ex: M2)" />
-            </div>
-            <div className="form-row">
-              <input name="ano_fabricacao" type="number" value={veiculo.ano_fabricacao} onChange={handleChange} placeholder="Ano de Fabricação" />
-              <input name="ano_modelo" type="number" value={veiculo.ano_modelo} onChange={handleChange} placeholder="Ano do Modelo" />
-            </div>
-            <div className="form-row">
-              <input name="quilometragem" type="number" value={veiculo.quilometragem} onChange={handleChange} placeholder="Quilometragem" />
-              <input name="preco" type="number" step="0.01" value={veiculo.preco} onChange={handleChange} placeholder="Preço (ex: 250000.00)" />
-            </div>
-            <textarea name="descricao" value={veiculo.descricao} onChange={handleChange} placeholder="Descrição (opcional)" />
-            {error && <p className="form-message error">{error}</p>}
-            {success && <p className="form-message success">{success}</p>}
-            <button type="submit" className="submit-button">Anunciar Veículo</button>
-          </form>
-        </div>
-      </main>
+      {user.role === 'convidado' ? (
+        <main className="main-content">
+          <AvisoCadastro pagina="Vender" />
+        </main>
+      ) : (
+        <main className="main-content">
+          <div className="sell-form-container">
+            <h2>Anuncie seu Veículo</h2>
+            <p>Preencha os dados abaixo para criar seu anúncio.</p>
+            <form onSubmit={handleSubmit} className="sell-form">
+              <div className="form-row">
+                <input name="marca" value={veiculo.marca} onChange={handleChange} placeholder="Marca (ex: BMW)" />
+                <input name="modelo" value={veiculo.modelo} onChange={handleChange} placeholder="Modelo (ex: M2)" />
+              </div>
+              <div className="form-row">
+                <input name="ano_fabricacao" type="number" value={veiculo.ano_fabricacao} onChange={handleChange} placeholder="Ano de Fabricação" />
+                <input name="ano_modelo" type="number" value={veiculo.ano_modelo} onChange={handleChange} placeholder="Ano do Modelo" />
+              </div>
+              <div className="form-row">
+                <input name="quilometragem" type="number" value={veiculo.quilometragem} onChange={handleChange} placeholder="Quilometragem" />
+                <input name="preco" type="number" step="0.01" value={veiculo.preco} onChange={handleChange} placeholder="Preço (ex: 250000.00)" />
+              </div>
+              <textarea name="descricao" value={veiculo.descricao} onChange={handleChange} placeholder="Descrição (opcional)" />
+              {error && <p className="form-message error">{error}</p>}
+              {success && <p className="form-message success">{success}</p>}
+              <button type="submit" className="submit-button">Anunciar Veículo</button>
+            </form>
+          </div>
+        </main>
+      )}
     </div>
   );
 }

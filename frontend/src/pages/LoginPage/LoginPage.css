@@ -56,3 +56,8 @@
 .login-button.visitor:hover {
   background-color: #555;
 }
+
+.signup-link {
+  margin-top: 25px;
+  font-size: 0.9rem;
+}

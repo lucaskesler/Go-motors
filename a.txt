@@ -7,3 +7,10 @@ Opção 2
 Frontend: React.js
 Backend: Node.js com Express.js
 Banco de Dados: PostgreSQL
+
+Rodar
+Backend
+.\venv\Scripts\activate
+python manage.py runserver
+Frontend
+npm start

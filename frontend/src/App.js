@@ -5,6 +5,8 @@ import './App.css';
 // Importa as páginas
 import LoginPage from './pages/LoginPage/LoginPage';
 import HomePage from './pages/HomePage/HomePage';
+import VenderPage from './pages/VenderPage/VenderPage';
+import ServicosPage from './pages/ServicosPage/ServicosPage';
 
 function App() {
   return (
@@ -12,7 +14,8 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<HomePage />} />
-        {/* Adicione outras rotas aqui (ex: /vender, /servicos) */}
+        <Route path="/vender" element={<VenderPage />} />
+        <Route path="/servicos" element={<ServicosPage />} />
       </Routes>
     </Router>
   );

@@ -1,0 +1,80 @@
+.sell-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.sell-form-container h2 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+.sell-form-container p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.sell-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-row input {
+  width: 100%;
+}
+
+.sell-form input,
+.sell-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.sell-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-button {
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.form-message {
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.form-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.form-message.success {
+  background-color: #d4edda;
+  color: #155724;
+}

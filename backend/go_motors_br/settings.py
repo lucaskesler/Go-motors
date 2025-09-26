@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     # Seus apps (ex: 'vehicles')
+    'vehicles.apps.VehiclesConfig',
 ]
 
 MIDDLEWARE = [

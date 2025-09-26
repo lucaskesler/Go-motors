@@ -1,0 +1,9 @@
+Opção 1
+Frontend: React.js
+Backend: Python com Django
+Banco de Dados: PostgreSQL
+
+Opção 2
+Frontend: React.js
+Backend: Node.js com Express.js
+Banco de Dados: PostgreSQL
